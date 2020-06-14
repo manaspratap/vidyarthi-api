@@ -3,18 +3,6 @@ from rest_framework import serializers
 from account.models import Account
 
 
-# class LoginSerializer(serializers.ModelSerializer):
-# 	class Meta:
-# 		model = Account
-# 		fields = ['email', 'password',]
-
-# 		extra_kwargs = {'password': {'write_only': True}}
-
-# 	def validate(self, data):
-# 		password = data.get('password')
-# 		email = data.get('email')
-
-
 class RegistrationSerializer(serializers.ModelSerializer):
 
 	password2 				= serializers.CharField(style={'input_type': 'password'}, write_only=True)
@@ -40,5 +28,24 @@ class RegistrationSerializer(serializers.ModelSerializer):
 		account.set_password(password)
 		account.save()
 		return account
+
+
+class AccountPropertiesSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = Account
+		fields = ['pk', 'email', 'username', ]
+
+
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+
+	old_password 				= serializers.CharField(required=True)
+	new_password 				= serializers.CharField(required=True)
+	confirm_new_password 		= serializers.CharField(required=True)
+
+
+
 
 
