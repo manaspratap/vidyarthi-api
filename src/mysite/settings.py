@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'personal',
     'account',
     'blog',
-    'collaborate',
+    'me',
 
 
     # django apps
