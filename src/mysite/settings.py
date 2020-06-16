@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'account',
     'blog',
     'me',
+    'course',
+    'collaborate',
+    'nlp',
 
 
     # django apps

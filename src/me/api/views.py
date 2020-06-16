@@ -1,3 +1,4 @@
+from rest_framework import viewsets
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
@@ -16,6 +17,21 @@ ERROR = 'error'
 DELETE_SUCCESS = 'deleted'
 UPDATE_SUCCESS = 'updated'
 CREATE_SUCCESS = 'created'
+
+# Headers: Authorization: Token <token>
+@api_view(['GET', ])
+@permission_classes((IsAuthenticated, ))
+def collaborate_read_view(request):
+    try:
+        collaborate = CollaborateModel.objects.get(
+            userId=request.query_params.get('userId'))
+    except CollaborateModel.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = CollaborateSerializer(collaborate)
+        return Response(serializer.data)
+
 
 # Headers: Authorization: Token <token>
 @api_view(['POST', ])
@@ -48,6 +64,20 @@ def collaborate_create_view(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # Headers: Authorization: Token <token>
+@api_view(['GET', ])
+@permission_classes((IsAuthenticated, ))
+def project_read_view(request):
+    try:
+        project = ProjectModel.objects.get(
+            userId=request.query_params.get('userId'))
+    except ProjectModel.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = ProjectSerializer(project)
+        return Response(serializer.data)
+
+# Headers: Authorization: Token <token>
 @api_view(['POST', ])
 @permission_classes((IsAuthenticated, ))
 def project_create_view(request):
@@ -70,6 +100,20 @@ def project_create_view(request):
 
             return Response(data=data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# Headers: Authorization: Token <token>
+@api_view(['GET', ])
+@permission_classes((IsAuthenticated, ))
+def course_read_view(request):
+    try:
+        course = CourseModel.objects.get(
+            userId=request.query_params.get('userId'))
+    except CourseModel.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = CourseSerializer(course)
+        return Response(serializer.data)
 
 # Headers: Authorization: Token <token>
 @api_view(['POST', ])
