@@ -9,8 +9,8 @@ from rest_framework.generics import ListAPIView
 from rest_framework.filters import SearchFilter, OrderingFilter
 
 from account.models import Account
-from me.models import CollaborateModel, ProjectModel, CourseModel
-from me.api.serializers import CollaborateSerializer, ProjectSerializer, CourseSerializer
+from me.models import CollaborateModel, ProjectModel, CourseModel, SuggestionModel
+from me.api.serializers import CollaborateSerializer, ProjectSerializer, CourseSerializer, SuggestionSerializer
 
 SUCCESS = 'success'
 ERROR = 'error'
@@ -139,4 +139,25 @@ def course_create_view(request):
             data['userId'] = course_detail.userId
 
             return Response(data=data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# Headers: Authorization: Token <token>
+@api_view(['POST', ])
+@permission_classes((IsAuthenticated, ))
+def suggestion_create_view(request):
+
+    if request.method == 'POST':
+
+        data = request.data
+        data['userId'] = request.data.get('userId',0)
+        data['category'] = request.data.get('category',0)
+        data['message'] = request.data.get('message',0)
+        serializer = SuggestionSerializer(data=data)
+
+        data = {}
+        if serializer.is_valid():
+            course_detail = serializer.save()
+            data['response'] = CREATE_SUCCESS
+            return Response(data=data)
+
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

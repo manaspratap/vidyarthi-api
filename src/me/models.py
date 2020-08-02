@@ -45,3 +45,13 @@ class CourseModel(models.Model):
 
     def __str__(self):
         return self.courseTitle
+
+class SuggestionModel(models.Model):
+
+    suggestionId = models.AutoField(primary_key=True)
+    userId = models.IntegerField()
+    category = models.CharField(max_length=512)
+    message = models.CharField(max_length=512)
+
+    def __str__(self):
+        return self.suggestionId
