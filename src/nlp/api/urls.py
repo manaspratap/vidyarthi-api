@@ -6,5 +6,5 @@ from nlp.api.views import(
 app_name = 'nlp'
 
 urlpatterns = [
-    path('nlp/read', nlp_view, name="nlp_read"),
+    path('read', nlp_view, name="nlp_read"),
 ]
