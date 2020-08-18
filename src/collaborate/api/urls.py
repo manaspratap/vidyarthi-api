@@ -6,5 +6,5 @@ from collaborate.api.views import(
 app_name = 'collaborate'
 
 urlpatterns = [
-    path('collaborate/read', collaborate_view, name="collaborate_read"),
+    path('read', collaborate_view, name="collaborate_read"),
 ]

@@ -6,5 +6,5 @@ from course.api.views import(
 app_name = 'course'
 
 urlpatterns = [
-    path('course/read', course_view, name="course_read"),
+    path('read', course_view, name="course_read"),
 ]

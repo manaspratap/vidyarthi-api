@@ -19,15 +19,16 @@ UPDATE_SUCCESS = 'updated'
 CREATE_SUCCESS = 'created'
 
 # Headers: Authorization: Token <token>
-@api_view(['GET', ])
+@api_view(['POST', ])
 @permission_classes((IsAuthenticated, ))
 def collaborate_view(request):
-    try:
-        collaborate = CollaborateModel.objects.get(
-            userId=request.query_params.get('userId'))
-    except CollaborateModel.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
 
-    if request.method == 'GET':
-        serializer = CollaborateSerializer(collaborate)
-        return Response(serializer.data)
+    data = {}
+    if request.method == 'POST':
+        searchWord = request.data.get('search_word',0)
+        print('-----------'+str(searchWord))
+        # call a function here eg. data["page"] = nlpFunction (searchWord)
+        # send either me, collaborate, course, support
+        # data["page"]='collaborate'
+        # return Response(data=data)
+        return Response(SUCCESS)
