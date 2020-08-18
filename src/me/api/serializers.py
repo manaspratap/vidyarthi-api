@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from me.models import CollaborateModel, ProjectModel, CourseModel, SuggestionModel
+from me.models import CollaborateModel, ProjectModel, CourseModel, SuggestionModel, MeAccountModel
 
 
 class CollaborateSerializer(serializers.ModelSerializer):
@@ -31,3 +31,9 @@ class SuggestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = SuggestionModel
         fields = ['userId', 'category', 'message']
+
+class MeAccountSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = MeAccountModel
+        fields = ['userId', 'about', 'primaryTrack']

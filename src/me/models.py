@@ -54,4 +54,13 @@ class SuggestionModel(models.Model):
     message = models.CharField(max_length=512)
 
     def __str__(self):
-        return self.suggestionId
+        return self.category
+
+class MeAccountModel(models.Model):
+    
+    about = models.CharField(max_length=512)
+    primaryTrack = models.CharField(max_length=512)
+    userId = models.CharField(primary_key=True, max_length=512)
+
+    def __str__(self):
+        return self.userId

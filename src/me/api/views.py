@@ -7,16 +7,60 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.generics import ListAPIView
 from rest_framework.filters import SearchFilter, OrderingFilter
+from django.http import JsonResponse
 
 from account.models import Account
-from me.models import CollaborateModel, ProjectModel, CourseModel, SuggestionModel
-from me.api.serializers import CollaborateSerializer, ProjectSerializer, CourseSerializer, SuggestionSerializer
+from me.models import CollaborateModel, ProjectModel, CourseModel, SuggestionModel, MeAccountModel
+from me.api.serializers import CollaborateSerializer, ProjectSerializer, CourseSerializer, SuggestionSerializer, MeAccountSerializer
 
 SUCCESS = 'success'
 ERROR = 'error'
 DELETE_SUCCESS = 'deleted'
 UPDATE_SUCCESS = 'updated'
 CREATE_SUCCESS = 'created'
+
+# Headers: Authorization: Token <token>
+@api_view(['GET', ])
+@permission_classes((IsAuthenticated, ))
+def account_read_view(request):
+    try:
+        meAccount = MeAccountModel.objects.get(
+            userId=request.query_params.get('userId'))
+    except CollaborateModel.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = MeAccountSerializer(meAccount)
+        return Response(serializer.data)
+
+# Headers: Authorization: Token <token>
+@api_view(['POST', ])
+@permission_classes((IsAuthenticated, ))
+def account_create_view(request):
+
+    if request.method == 'POST':
+
+        data = request.data
+        data['author'] = request.user.pk
+        serializer = MeAccountSerializer(data=data)
+
+        data = {}
+        if serializer.is_valid():
+            account_detail = serializer.save()
+            data['response'] = CREATE_SUCCESS
+            data['about'] = account_detail.about
+            data['primaryTrack'] = account_detail.primaryTrack
+            data['userId'] = account_detail.userId
+
+            return Response(data=data)
+        if serializer.errors['userId'][0] == 'me account model with this userId already exists.':
+            updateData = MeAccountModel.objects.get(userId=int(request.data['userId']))
+            updateData.about = request.data['about']
+            updateData.primaryTrack = request.data['primaryTrack']
+            updateData.save()
+            data['response'] = UPDATE_SUCCESS
+            return Response(data=data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # Headers: Authorization: Token <token>
 @api_view(['GET', ])
@@ -61,6 +105,21 @@ def collaborate_create_view(request):
             data['projectDuration'] = collaborate_detail.projectDuration
 
             return Response(data=data)
+        if serializer.errors['userId'][0] == 'collaborate model with this userId already exists.':
+            updateData = CollaborateModel.objects.get(userId=int(request.data['userId']))
+            updateData.workDuring = request.data['workDuring']
+            updateData.otherWorkDuring = request.data['otherWorkDuring']
+            updateData.workWith = request.data['workWith']
+            updateData.communicateOver = request.data['communicateOver']
+            updateData.communicateWith = request.data['communicateWith']
+            updateData.workBy = request.data['workBy']
+            updateData.otherWorkBy = request.data['otherWorkBy']
+            updateData.workHours = request.data['workHours']
+            updateData.otherWorkHours = request.data['otherWorkHours']
+            updateData.projectDuration = request.data['projectDuration']
+            updateData.save()
+            data['response'] = UPDATE_SUCCESS
+            return Response(data=data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # Headers: Authorization: Token <token>
@@ -68,13 +127,12 @@ def collaborate_create_view(request):
 @permission_classes((IsAuthenticated, ))
 def project_read_view(request):
     try:
-        project = ProjectModel.objects.get(
-            userId=request.query_params.get('userId'))
+        project = ProjectModel.objects.filter(userId=request.query_params.get('userId'))
     except ProjectModel.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        serializer = ProjectSerializer(project)
+        serializer = ProjectSerializer(project, many = True)
         return Response(serializer.data)
 
 # Headers: Authorization: Token <token>
@@ -106,13 +164,12 @@ def project_create_view(request):
 @permission_classes((IsAuthenticated, ))
 def course_read_view(request):
     try:
-        course = CourseModel.objects.get(
-            userId=request.query_params.get('userId'))
+        course = CourseModel.objects.filter(userId=request.query_params.get('userId'))
     except CourseModel.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        serializer = CourseSerializer(course)
+        serializer = CourseSerializer(course, many = True)
         return Response(serializer.data)
 
 # Headers: Authorization: Token <token>

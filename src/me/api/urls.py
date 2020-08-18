@@ -7,6 +7,8 @@ from me.api.views import(
     course_read_view,
     course_create_view,
     suggestion_create_view,
+    account_read_view,
+    account_create_view,
 )
 
 app_name = 'me'
@@ -18,5 +20,7 @@ urlpatterns = [
     path('project/create', project_create_view, name="project_create"),
     path('course/read', course_read_view, name="course_read"),
     path('course/create', course_create_view, name="course_create"),
-    path('suggestion/create', suggestion_create_view, name="suggestion_create")
+    path('account/read', account_read_view, name="account_read"),
+    path('account/create', account_create_view, name="account_create"),
+    path('suggestion/create', suggestion_create_view, name="suggestion_create"),
 ]

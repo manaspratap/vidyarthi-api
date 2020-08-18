@@ -27,5 +27,6 @@ def nlp_view(request):
     if request.method == 'POST':
         searchWord = request.data.get('search_word',0)
         # call a function here eg. data["page"] = nlpFunction (searchWord)
-        data["page"]=1
+        # send either me, collaborate, course, support
+        data["page"]='collaborate'
         return Response(data=data)
