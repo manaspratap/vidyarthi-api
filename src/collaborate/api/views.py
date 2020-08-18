@@ -31,7 +31,7 @@ def collaborate_view(request):
         # send either me, collaborate, course, support
         # data["page"]='collaborate'
         # return Response(data=data)
-        projectCollaborate(searchWord)
+        projectCollaborate(searchWord, request)
         return Response(SUCCESS)
 
 import pandas as pd
@@ -48,12 +48,14 @@ def adjust_compat_standalone_attributes(attribute_name, user, collaborator):
     return abs(user[attribute_name] - collaborator[attribute_name]) * -5
 
     
-def projectCollaborate(searchWord):    
+def projectCollaborate(searchWord, request):    
     projectprofiles = pd.read_csv('./user-project-profiles.csv')
-
+    print('------ddd----'+str(request.user.pk))
     #Inputs - Come From FrontEnd of Application
-    user_id = 10 # int(input("User ID : "))
+    user_id = request.user.pk # int(input("User ID : "))
     project_track = searchWord
+
+    
 
     matching_track_profiles = DataFrame(columns=projectprofiles.columns)
     k = 1
