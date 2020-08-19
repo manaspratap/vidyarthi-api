@@ -13,3 +13,11 @@ action
 activity
 job
 write
+build
+project
+partner
+student
+intern
+internship
+experience
+searching

@@ -1,12 +1,101 @@
 User_ID,Name,Work_Time_Preference,Team_Work_Time_Preference,Alignment_of_Work,Group_Size_Preference,Mode_of_Communication_Preference,Style_of_Communication_Preference,Learn_and_Work_Preference,Team_Learn_and_Work_Preference,Working_Hours_Preference,Team_Working_Hours_Preference,Duration_of_Project_Preference,Tracks_Worked_On,About,eScore
-1,ABC,1,0,2,4,0,2,0,0,10,5,2,Machine Learning.Data Science.Embedded Systems,My inspiration comes from the beautiful forests,35
-2,DEF,1,0,2,2,0,1,0,0,5,15,2,Full Stack Developement.Data Science,My inspiration comes from the beautiful forests,32
-3,GHI,2,0,2,2,0,1,0,0,10,10,2,Deep Learning,My inspiration comes from the beautiful forests,45
-4,JKL,1,0,0,3,1,1,0,0,15,10,1,Full Stack Developement,My inspiration comes from the beautiful forests,50
-5,MNO,2,1,1,0,4,0,0,0,5,10,1,Cryptocurrency,My inspiration comes from the beautiful forests,35
-6,PQR,2,0,2,4,0,0,2,0,10,0,0,Cryptography.Networking,My inspiration comes from the beautiful forests,40
-7,STU,1,0,2,4,0,2,0,0,10,5,2,Game Designing.Full Stack Developement,My inspiration comes from the beautiful forests,40
-8,VWY,2,1,1,0,4,0,0,0,5,10,1,Cryptography.Networking,My inspiration comes from the beautiful forests,39
-9,ZZZ,2,0,2,2,0,1,0,0,10,10,2,Embedded Systems.Internet Of Things,My inspiration comes from the beautiful forests,38
-10,ZAA,2,2,2,4,0,0,2,0,10,15,0,Machine Learning.Deep Learning,My inspiration comes from the beautiful forests,31
-11,ZBC,1,0,2,4,0,2,0,0,15,5,2,Machine Learning.Data Science,I am a passionate developer,49
+1,RANJAN,1,0,2,4,0,2,0,0,10,5,2,All Development,My inspiration comes from the beautiful forests,35
+2,SHUBHAM,1,0,2,2,0,1,0,0,5,15,2,All Development,My inspiration comes from the beautiful forests,32
+3,MANAS,2,0,2,2,0,1,0,0,10,10,2,All Development,My inspiration comes from the beautiful forests,45
+4,AKASH,1,0,0,3,1,1,0,0,15,10,1,All Development,My inspiration comes from the beautiful forests,50
+5,AMRIT,2,1,1,0,4,0,0,0,5,10,1,All Development,My inspiration comes from the beautiful forests,49
+13,AKSHAY,1,2,2,0,2,1,2,0,10,5,2,All Development,I am a passionate developer,37
+14,AMEYA,2,1,0,2,1,2,1,0,10,5,2,All Development,My inspiration comes from the beautiful forests,46
+15,ANUSHA,1,2,1,1,2,1,2,0,0,0,1,All Development,My inspiration comes from the beautiful forests,35
+16,ABHAY,2,1,2,2,2,1,0,0,10,0,2,All Development,My inspiration comes from the beautiful forests,45
+17,AMRESH,2,1,2,1,1,2,2,1,0,15,2,All Development,I am a passionate developer,39
+18,ASHUTOSH,2,1,1,2,1,2,1,0,10,10,1,All Development,My inspiration comes from the beautiful forests,38
+19,ARZAN,2,1,2,2,1,1,1,1,10,0,1,All Development,My inspiration comes from the beautiful forests,40
+20,ANAND,1,1,2,1,1,2,2,1,15,10,1,All Development,I am a passionate developer,49
+1,RANJAN,1,0,2,4,0,2,0,0,10,5,2,Web Development,My inspiration comes from the beautiful forests,35
+2,SHUBHAM,1,0,2,2,0,1,0,0,5,15,2,Web Development,My inspiration comes from the beautiful forests,32
+3,MANAS,2,0,2,2,0,1,0,0,10,10,2,Web Development,My inspiration comes from the beautiful forests,45
+4,AKASH,1,0,0,3,1,1,0,0,15,10,1,Web Development,My inspiration comes from the beautiful forests,50
+5,AMRIT,2,1,1,0,4,0,0,0,5,10,1,Web Development,My inspiration comes from the beautiful forests,35
+6,ARIJIT,2,0,2,4,0,0,2,0,10,0,0,Web Development,My inspiration comes from the beautiful forests,40
+7,PRATEEK,1,0,2,4,0,2,0,0,10,5,2,Web Development,My inspiration comes from the beautiful forests,40
+8,ARNAV,2,1,1,0,4,0,0,0,5,10,1,Web Development,My inspiration comes from the beautiful forests,39
+19,ARZAN,2,1,2,2,1,1,1,1,10,0,1,Web Development,My inspiration comes from the beautiful forests,40
+20,ANAND,1,1,2,1,1,2,2,1,15,10,1,Web Development,I am a passionate developer,49
+1,RANJAN,1,0,2,4,0,2,0,0,10,5,2,Data Science,My inspiration comes from the beautiful forests,35
+10,ISHANI,2,2,2,4,0,0,2,0,10,15,0,Data Science,My inspiration comes from the beautiful forests,31
+11,KULDEEP,1,0,2,4,0,2,0,0,15,5,2,Data Science,I am a passionate developer,49
+12,MANOJ,2,1,0,3,1,2,1,0,15,10,1,Data Science,I am a passionate developer,43
+13,AKSHAY,1,2,2,0,2,1,2,0,10,5,2,Data Science,I am a passionate developer,37
+14,AMEYA,2,1,0,2,1,2,1,0,10,5,2,Data Science,My inspiration comes from the beautiful forests,46
+15,ANUSHA,1,2,1,1,2,1,2,0,0,0,1,Data Science,My inspiration comes from the beautiful forests,35
+16,ABHAY,2,1,2,2,2,1,0,0,10,0,2,Data Science,My inspiration comes from the beautiful forests,45
+17,AMRESH,2,1,2,1,1,2,2,1,0,15,2,Data Science,I am a passionate developer,39
+18,ASHUTOSH,2,1,1,2,1,2,1,0,10,10,1,Data Science,My inspiration comes from the beautiful forests,38
+19,ARZAN,2,1,2,2,1,1,1,1,10,0,1,Data Science,My inspiration comes from the beautiful forests,40
+20,ANAND,1,1,2,1,1,2,2,1,15,10,1,Data Science,I am a passionate developer,49
+1,RANJAN,1,0,2,4,0,2,0,0,10,5,2,Mobile Apps,My inspiration comes from the beautiful forests,35
+2,SHUBHAM,1,0,2,2,0,1,0,0,5,15,2,Mobile Apps,My inspiration comes from the beautiful forests,32
+6,ARIJIT,2,0,2,4,0,0,2,0,10,0,0,Mobile Apps,My inspiration comes from the beautiful forests,40
+7,PRATEEK,1,0,2,4,0,2,0,0,10,5,2,Mobile Apps,My inspiration comes from the beautiful forests,40
+8,ARNAV,2,1,1,0,4,0,0,0,5,10,1,Mobile Apps,My inspiration comes from the beautiful forests,39
+9,KARAN,2,0,2,2,0,1,0,0,10,10,2,Mobile Apps,My inspiration comes from the beautiful forests,38
+10,ISHANI,2,2,2,4,0,0,2,0,10,15,0,Mobile Apps,My inspiration comes from the beautiful forests,31
+18,ASHUTOSH,2,1,1,2,1,2,1,0,10,10,1,Mobile Apps,My inspiration comes from the beautiful forests,38
+19,ARZAN,2,1,2,2,1,1,1,1,10,0,1,Mobile Apps,My inspiration comes from the beautiful forests,40
+20,ANAND,1,1,2,1,1,2,2,1,15,10,1,Mobile Apps,I am a passionate developer,49
+1,RANJAN,1,0,2,4,0,2,0,0,10,5,2,Programming Language,My inspiration comes from the beautiful forests,35
+2,SHUBHAM,1,0,2,2,0,1,0,0,5,15,2,Programming Language,My inspiration comes from the beautiful forests,32
+3,MANAS,2,0,2,2,0,1,0,0,10,10,2,Programming Language,My inspiration comes from the beautiful forests,45
+18,ASHUTOSH,2,1,1,2,1,2,1,0,10,10,1,Programming Language,My inspiration comes from the beautiful forests,38
+19,ARZAN,2,1,2,2,1,1,1,1,10,0,1,Programming Language,My inspiration comes from the beautiful forests,40
+20,ANAND,1,1,2,1,1,2,2,1,15,10,1,Programming Language,I am a passionate developer,49
+1,RANJAN,1,0,2,4,0,2,0,0,10,5,2,Game Development,My inspiration comes from the beautiful forests,35
+2,SHUBHAM,1,0,2,2,0,1,0,0,5,15,2,Game Development,My inspiration comes from the beautiful forests,32
+3,MANAS,2,0,2,2,0,1,0,0,10,10,2,Game Development,My inspiration comes from the beautiful forests,45
+4,AKASH,1,0,0,3,1,1,0,0,15,10,1,Game Development,My inspiration comes from the beautiful forests,50
+5,AMRIT,2,1,1,0,4,0,0,0,5,10,1,Game Development,My inspiration comes from the beautiful forests,35
+6,ARIJIT,2,0,2,4,0,0,2,0,10,0,0,Game Development,My inspiration comes from the beautiful forests,40
+7,PRATEEK,1,0,2,4,0,2,0,0,10,5,2,Game Development,My inspiration comes from the beautiful forests,40
+8,ARNAV,2,1,1,0,4,0,0,0,5,10,1,Game Development,My inspiration comes from the beautiful forests,39
+9,KARAN,2,0,2,2,0,1,0,0,10,10,2,Game Development,My inspiration comes from the beautiful forests,38
+6,ARIJIT,2,0,2,4,0,0,2,0,10,0,0,Databases,My inspiration comes from the beautiful forests,40
+7,PRATEEK,1,0,2,4,0,2,0,0,10,5,2,Databases,My inspiration comes from the beautiful forests,40
+8,ARNAV,2,1,1,0,4,0,0,0,5,10,1,Databases,My inspiration comes from the beautiful forests,39
+9,KARAN,2,0,2,2,0,1,0,0,10,10,2,Databases,My inspiration comes from the beautiful forests,38
+10,ISHANI,2,2,2,4,0,0,2,0,10,15,0,Databases,My inspiration comes from the beautiful forests,31
+11,KULDEEP,1,0,2,4,0,2,0,0,15,5,2,Databases,I am a passionate developer,49
+12,MANOJ,2,1,0,3,1,2,1,0,15,10,1,Databases,I am a passionate developer,43
+13,AKSHAY,1,2,2,0,2,1,2,0,10,5,2,Databases,I am a passionate developer,37
+14,AMEYA,2,1,0,2,1,2,1,0,10,5,2,Databases,My inspiration comes from the beautiful forests,46
+19,ARZAN,2,1,2,2,1,1,1,1,10,0,1,Databases,My inspiration comes from the beautiful forests,40
+20,ANAND,1,1,2,1,1,2,2,1,15,10,1,Databases,I am a passionate developer,49
+1,RANJAN,1,0,2,4,0,2,0,0,10,5,2,Software Testing,My inspiration comes from the beautiful forests,35
+2,SHUBHAM,1,0,2,2,0,1,0,0,5,15,2,Software Testing,My inspiration comes from the beautiful forests,32
+3,MANAS,2,0,2,2,0,1,0,0,10,10,2,Software Testing,My inspiration comes from the beautiful forests,45
+4,AKASH,1,0,0,3,1,1,0,0,15,10,1,Software Testing,My inspiration comes from the beautiful forests,50
+18,ASHUTOSH,2,1,1,2,1,2,1,0,10,10,1,Software Testing,My inspiration comes from the beautiful forests,38
+19,ARZAN,2,1,2,2,1,1,1,1,10,0,1,Software Testing,My inspiration comes from the beautiful forests,40
+20,ANAND,1,1,2,1,1,2,2,1,15,10,1,Software Testing,I am a passionate developer,49
+1,RANJAN,1,0,2,4,0,2,0,0,10,5,2,Software Engineering,My inspiration comes from the beautiful forests,35
+2,SHUBHAM,1,0,2,2,0,1,0,0,5,15,2,Software Engineering,My inspiration comes from the beautiful forests,32
+3,MANAS,2,0,2,2,0,1,0,0,10,10,2,Software Engineering,My inspiration comes from the beautiful forests,45
+12,MANOJ,2,1,0,3,1,2,1,0,15,10,1,Software Engineering,I am a passionate developer,43
+13,AKSHAY,1,2,2,0,2,1,2,0,10,5,2,Software Engineering,I am a passionate developer,37
+14,AMEYA,2,1,0,2,1,2,1,0,10,5,2,Software Engineering,My inspiration comes from the beautiful forests,46
+15,ANUSHA,1,2,1,1,2,1,2,0,0,0,1,Software Engineering,My inspiration comes from the beautiful forests,35
+16,ABHAY,2,1,2,2,2,1,0,0,10,0,2,Software Engineering,My inspiration comes from the beautiful forests,45
+17,AMRESH,2,1,2,1,1,2,2,1,0,15,2,Software Engineering,I am a passionate developer,39
+18,ASHUTOSH,2,1,1,2,1,2,1,0,10,10,1,Software Engineering,My inspiration comes from the beautiful forests,38
+19,ARZAN,2,1,2,2,1,1,1,1,10,0,1,Software Engineering,My inspiration comes from the beautiful forests,40
+20,ANAND,1,1,2,1,1,2,2,1,15,10,1,Software Engineering,I am a passionate developer,49
+6,ARIJIT,2,0,2,4,0,0,2,0,10,0,0,Development Tools,My inspiration comes from the beautiful forests,40
+7,PRATEEK,1,0,2,4,0,2,0,0,10,5,2,Development Tools,My inspiration comes from the beautiful forests,40
+8,ARNAV,2,1,1,0,4,0,0,0,5,10,1,Development Tools,My inspiration comes from the beautiful forests,39
+9,KARAN,2,0,2,2,0,1,0,0,10,10,2,Development Tools,My inspiration comes from the beautiful forests,38
+10,ISHANI,2,2,2,4,0,0,2,0,10,15,0,Development Tools,My inspiration comes from the beautiful forests,31
+11,KULDEEP,1,0,2,4,0,2,0,0,15,5,2,Development Tools,I am a passionate developer,49
+12,MANOJ,2,1,0,3,1,2,1,0,15,10,1,Development Tools,I am a passionate developer,43
+13,AKSHAY,1,2,2,0,2,1,2,0,10,5,2,Development Tools,I am a passionate developer,37
+14,AMEYA,2,1,0,2,1,2,1,0,10,5,2,Development Tools,My inspiration comes from the beautiful forests,46
+15,ANUSHA,1,2,1,1,2,1,2,0,0,0,1,Development Tools,My inspiration comes from the beautiful forests,35

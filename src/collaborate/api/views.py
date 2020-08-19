@@ -47,7 +47,7 @@ def adjust_compat_standalone_attributes(attribute_name, user, collaborator):
     
 def projectCollaborate(searchWord, request):    
     projectprofiles = pd.read_csv('./user-project-profiles.csv')
-    user_id = 10 # request.user.pk 
+    user_id = request.user.pk 
     project_track = searchWord
 
     print('------12321------'+searchWord)
@@ -79,7 +79,7 @@ def projectCollaborate(searchWord, request):
         row["Compatibility_Score"] = row["Compatibility_Score"] + compat_adjust
         matching_track_profiles.loc[index] = row
 
-        matching_profiles_dict = list()
+    matching_profiles_dict = list()
 
     for index, row in matching_track_profiles.iterrows():
         matching_profiles_dict.append({
