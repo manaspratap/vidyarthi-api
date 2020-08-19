@@ -9,8 +9,8 @@ from rest_framework.generics import ListAPIView
 from rest_framework.filters import SearchFilter, OrderingFilter
 
 from account.models import Account
-from me.models import CollaborateModel, ProjectModel, CourseModel
-from me.api.serializers import CollaborateSerializer, ProjectSerializer, CourseSerializer
+from course.models import CourseMLModel
+from course.api.serializers import CourseMLSerializer
 
 SUCCESS = 'success'
 ERROR = 'error'
@@ -26,13 +26,9 @@ def course_view(request):
     data = {}
     if request.method == 'POST':
         searchWord = request.data.get('search_word',0)
-        # print('-----------2'+str(searchWord))
-        # call a function here eg. data["page"] = nlpFunction (searchWord)
-        # send either me, collaborate, course, support
-        # data["page"]='collaborate'
-        # return Response(data=data)
-        recommendCourse(searchWord)
-        return Response(SUCCESS)
+        recommendCourseData = recommendCourse(searchWord)
+        serializer = CourseMLSerializer(recommendCourseData, many = True)
+        return Response(serializer.data)
 
 import pandas as pd
 import numpy as np
@@ -40,6 +36,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+import random
 
 def feature_combination(row):
     return row["course_title"] + " " + row["platform"] + " " + str(row["course_index"]) + " " + str(row["difficulty"])
@@ -77,12 +74,20 @@ def recommendCourse(searchWord):
     similar_courses = list(enumerate(csim[len(required_data) - 1]))
     sorted_similar_courses = sorted(similar_courses,key=lambda x:x[1],reverse=True)[1:50]
     i=0
-    recommended_courses = dict()
+    recommended_courses = list()
     for element in sorted_similar_courses:
-        course = required_data.loc[element[0]]
+        course = dataset.loc[element[0]]
         if(course["difficulty"] >= user_difficulty - 15 and course["difficulty"] <= user_difficulty + 15 and element[0] != len(required_data) - 1):
-            recommended_courses[course["course_index"], course["platform"]] = 100 - abs(user_difficulty - course["difficulty"])
-        
-    # integrate
-    print('------------------12------'+str(recommended_courses))
-
+            recommended_courses.append(
+            {
+                'courseId': course["course_index"], 
+                'courseTitle': course["course_title"], 
+                'courseLink': course["url"], 
+                'coursePublisher': course["platform"], 
+                'primaryTrack': "All Developement", 
+                'rating': random.randint(71, 100), 
+                'difficulty': course["difficulty"],
+                'recommended': 100 - abs(user_difficulty - course["difficulty"])            
+            })
+    
+    return recommended_courses

@@ -9,8 +9,8 @@ from rest_framework.generics import ListAPIView
 from rest_framework.filters import SearchFilter, OrderingFilter
 
 from account.models import Account
-from me.models import CollaborateModel, ProjectModel, CourseModel
-from me.api.serializers import CollaborateSerializer, ProjectSerializer, CourseSerializer
+from collaborate.models import CollaborateMLModel
+from collaborate.api.serializers import CollaborateMLSerializer
 
 SUCCESS = 'success'
 ERROR = 'error'
@@ -26,16 +26,13 @@ def collaborate_view(request):
     data = {}
     if request.method == 'POST':
         searchWord = request.data.get('search_word',0)
-        # print('-----------'+str(searchWord))
-        # call a function here eg. data["page"] = nlpFunction (searchWord)
-        # send either me, collaborate, course, support
-        # data["page"]='collaborate'
-        # return Response(data=data)
-        projectCollaborate(searchWord, request)
-        return Response(SUCCESS)
+        collaborateData = projectCollaborate(searchWord, request)
+        serializer = CollaborateMLSerializer(collaborateData, many = True)
+        return Response(serializer.data)
 
 import pandas as pd
 from pandas import DataFrame
+import random
 
 def adjust_compat_team_attributes(attribute_name, user, collaborator):
     if user[attribute_name] == 0 or collaborator[attribute_name[5:]] == 0:
@@ -50,12 +47,10 @@ def adjust_compat_standalone_attributes(attribute_name, user, collaborator):
     
 def projectCollaborate(searchWord, request):    
     projectprofiles = pd.read_csv('./user-project-profiles.csv')
-    print('------ddd----'+str(request.user.pk))
-    #Inputs - Come From FrontEnd of Application
-    user_id = request.user.pk # int(input("User ID : "))
+    user_id = 10 # request.user.pk 
     project_track = searchWord
 
-    
+    print('------12321------'+searchWord)
 
     matching_track_profiles = DataFrame(columns=projectprofiles.columns)
     k = 1
@@ -84,11 +79,17 @@ def projectCollaborate(searchWord, request):
         row["Compatibility_Score"] = row["Compatibility_Score"] + compat_adjust
         matching_track_profiles.loc[index] = row
 
-    matching_profiles_dict = {}
+        matching_profiles_dict = list()
 
     for index, row in matching_track_profiles.iterrows():
-        matching_profiles_dict[row["User_ID"]] = row["Compatibility_Score"]
-    
-    # return here
-    print('-------------321'+str(matching_profiles_dict))
-    matching_track_profiles
+        matching_profiles_dict.append({
+            'collaborateId': row['User_ID'],
+            'collaborateName': row['Name'],
+            'collaboratePrimaryTrack': searchWord,
+            'collaborateAbout': row['About'],
+            'collaborateCScore': int(row['Compatibility_Score']),
+            'collaborateEScore': int(row['eScore']),
+            'collaborateMScore': int(row['Compatibility_Score'] * 0.5 + row['eScore'])
+        })
+
+    return(matching_profiles_dict)
